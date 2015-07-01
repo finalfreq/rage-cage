@@ -3,17 +3,15 @@
 <h1>T R I B U T E T O T H E C A G E</h1>
 <% if @posts %>
 <ul>
-  <% @posts.in_groups_of(2).each do |posts| %>
+  <% @posts.in_groups_of(2, false).each do |posts| %>
     <div class="row clearfix">
       <% posts.each do |post| %>
-      <% if post %>
-          <div class="col-md-6">
-            <div class="well">
-              <h2 class="lead text-center"><%= link_to post.title, post_path(post) %></h2>
-              <img class="img-responsive text-center" src="<%= post.image %>" alt="A Cage" />
-            </div>
+        <div class="col-md-6">
+          <div class="well">
+            <h2 class="lead text-center"><%= link_to post.title, post_path(post) %></h2>
+            <img class="img-responsive text-center" src="<%= post.image %>" alt="A Cage" />
           </div>
-        <% end %>
+        </div>
       <% end %>
     </div>
   <% end %>
