@@ -16,6 +16,12 @@
     <%= link_to "Delete", post_path(@post), class: "btn btn-danger",
                                           data: {confirm: "Rescind tribute?",
                                                   method: 'delete'} %>
-  </div>
 
+  </div>
+    <%= link_to "Comment", new_post_comment_path(@post), class: "btn btn-success btn-sm", style: "float:right;" %>
+    <hr>
+    <% @post.comments.each do |comment| %>
+  <p><span style="font-weight: bold;"><%= link_to comment.user.name, user_path(comment.user) %> Praises: </span><%= comment.body %></p>
+    <% end %>
+  </div>
 </div>

@@ -8,6 +8,20 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:alert] = "Change En-Caged."
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
+  end
+
   def create
     @post = Post.new(post_params)
     if @post.save
