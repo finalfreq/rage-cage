@@ -2,9 +2,33 @@
 
 <h1>D I S C I P L E O F C A G E : <%= @user.name %> </h1>
 
-<div class="btn-group btn-group-sm" role="group">
-  <%= link_to "Edit", edit_user_path(@user), class: "btn btn-info" %>
-  <%= link_to "Delete", user_path(@user), class: "btn btn-danger",
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <div class="well">
+      <h3 class="lead text-center">T R I B U T E S</h3>
+      <hr>
+      <% @user.posts.each do |post| %>
+        <p><%= link_to post.title, post_path(post) %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well">
+      <h3 class="lead text-center">P R A I S E S</h3>
+      <hr>
+      <% @user.comments.each do |comment| %>
+        <p><i><%= link_to comment.body, post_path(comment.post) %></i></p>
+        <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+<hr>
+<div class="btn-group btn-group-sm " role="group">
+  <%= link_to "Edit #{@user.name}", edit_user_path(@user), class: "btn btn-info" %>
+  <%= link_to "Delete #{@user.name}", user_path(@user), class: "btn btn-danger",
                                         data: {confirm: "Uncage yourself?",
                                                 method: 'delete'} %>
+</div>
 </div>
