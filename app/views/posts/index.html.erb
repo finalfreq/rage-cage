@@ -1,11 +1,28 @@
 <% content_for(:title, "Posts | CAGEORATOR")  %>
 
 <h1>T R I B U T E T O T H E C A G E</h1>
-
+<% if @posts %>
 <ul>
-
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post) %></li>
+  <% @posts.in_groups_of(2).each do |posts| %>
+    <div class="row clearfix">
+      <% posts.each do |post| %>
+      <% if post %>
+          <div class="col-md-6">
+            <div class="well">
+              <h2 class="lead text-center"><%= link_to post.title, post_path(post) %></h2>
+              <img class="img-responsive text-center" src="<%= post.image %>" alt="A Cage" />
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 
 </ul>
+
+<% else %>
+
+<h3>N O T R I B U T E S A T T H I S T I M E </h3>
+
+
+<% end %>
