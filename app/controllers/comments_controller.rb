@@ -5,6 +5,22 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      flash[:alert] = "Praises modified"
+      redirect_to post_path(@comment.post)
+    else
+      render :edit
+    end
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
