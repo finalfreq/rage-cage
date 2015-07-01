@@ -33,12 +33,14 @@ class PostsController < ApplicationController
   end
 
   def show
+
     @post = Post.find(params[:id])
     total = @post.wins + @post.losses
     if total == 0
       @rating = 0
     else
-      @rating = @post.wins / total
+      @rating = @post.wins / total.to_f * 100
+      @rating = @rating.to_i
     end
   end
 
