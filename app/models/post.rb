@@ -6,4 +6,5 @@ class Post < ActiveRecord::Base
   validates :description, presence: true
   validates :image, uniqueness: true
 
+  default_scope { order(created_at: :desc) }
 end
