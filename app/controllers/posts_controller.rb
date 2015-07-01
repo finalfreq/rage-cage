@@ -34,6 +34,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    total = @post.wins + @post.losses
+    if total == 0
+      @rating = 0
+    else
+      @rating = @post.wins / total
+    end
   end
 
   def destroy
