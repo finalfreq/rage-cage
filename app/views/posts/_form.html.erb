@@ -1,0 +1,9 @@
+<%= render 'layouts/errors', object: @post %>
+
+<%= bootstrap_form_for(@post) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :image %>
+  <%= f.text_field :description %>
+  <%= f.collection_select(:user_id, User.all, :id, :name) %>
+  <%= f.submit data: {disable_with: "Cageing...." }, class: "btn btn-success btn-block" %>
+<% end %>
