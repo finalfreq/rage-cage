@@ -1,3 +1,8 @@
 <% content_for(:title, "Users | CAGEORATOR")  %>
 
 <h1>D I S C I P L E S O F C A G E</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.name, user_path(user) %></li>
+  <% end %>
+</ul>
