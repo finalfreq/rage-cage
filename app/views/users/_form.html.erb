@@ -1,0 +1,6 @@
+<%= render 'layouts/errors', object: @user %>
+
+<%= bootstrap_form_for(@user) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit data: {disable_with: "Cageing...." }, class: "btn btn-success btn-block" %>
+<% end %>
