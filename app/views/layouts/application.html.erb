@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NicCage</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<div class="container">
 <%= yield %>
+</div>
+ <div class="text-center">
+      <%= flash[:alert] %>
+  </div>
+ <nav class='navbar navbar-default' role='navigation' id="nav-footer">
+      <ul class='nav navbar-nav'>
+        <li><%= link_to "DISCIPLES", users_path %></li>
 
+      </ul>
+    </nav>
 </body>
 </html>

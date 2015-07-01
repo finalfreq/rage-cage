@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'pry'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap_form'
+
 
 group :development do
   gem 'byebug'
