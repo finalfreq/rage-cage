@@ -10,6 +10,12 @@
     <%= @post.description %>
   </p>
   <hr>
+  <p class="text-center">
+    <i>
+      Rating: <%= @post.rating %>
+    </i>
+  </p>
+<hr>
   <div class="btn-group btn-group-sm" role="group">
 
     <%= link_to "Edit", edit_post_path(@post), class: "btn btn-info" %>
