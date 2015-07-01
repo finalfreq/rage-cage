@@ -3,6 +3,15 @@
   <div class="col-md-4 col-md-offset-1">
     <h3> <%= @post1.title %></h3>
     <img id="battle" src="<%= @post1.image %>"/>
+
+    <%= form_tag("/battles", method: "update") do %>
+      <%= hidden_field_tag :winning_post_id, @post1.id %>
+      <%= hidden_field_tag :losing_post_id, @post2.id %>
+
+
+    <%= submit_tag("V O T E") %>
+    <% end %>
+
   </div>
   <div class="col-md-4 col-md-offset-1">
     <h3> <%= @post2.title %></h3>
